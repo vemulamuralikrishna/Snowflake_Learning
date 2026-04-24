@@ -1,0 +1,7 @@
+CREATE OR REPLACE FILE FORMAT PIPE_DELIMITED
+TYPE = CSV
+FIELD_DELIMITER = '|';
+
+COPY INTO CUSTOMER
+FROM @ASSIGNMENT1
+file_format= (type = csv field_delimiter='|' skip_header=1);
