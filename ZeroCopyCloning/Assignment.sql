@@ -14,3 +14,8 @@ CREATE OR REPLACE TABLE DEMO_DB.PUBLIC.time_travel_supplier_clone
 CLONE DEMO_DB.PUBLIC.SUPPLIER_CLONE before (statement => '01c3f50d-0001-aeee-000d-d87a00160162');
 
 SELECT * FROM DEMO_DB.PUBLIC.time_travel_supplier_clone;
+
+-- If we delete the source table, does the clone still exist?
+DROP TABLE DEMO_DB.PUBLIC.SUPPLIER;
+
+SELECT * FROM DEMO_DB.PUBLIC.SUPPLIER_CLONE;
